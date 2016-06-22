@@ -1,4 +1,4 @@
-# When Q-learning meets Haddop
+# When Q-learning meets Hadoop
 ---
 This is a course project on Cloud Computation. I am using Hadoop to implement (part of) Q-learning, which, more specifically, is the part where Q-value is updated.
 
