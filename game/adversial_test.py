@@ -21,15 +21,15 @@ if __name__ == '__main__':
 
     # qlearning 
     qp1 = QPlayer('Robot', './qvalues/tictactoe.qvalues', epsilon=0.3)
-    qp2 = QPlayer('Robot', './qvalues/tictactoe.2.qvalues', epsilon=0.3)
+    qp2 = QPlayer('Robot', './qvalues/tictactoe.qvalues', epsilon=0.3)
     
     win = tie = loss = 0
     for i in xrange(1000):
         # second move
-#       res = game.play([rp1, qp1], shuffle=False)
+        res = game.play([qp1, qp2], shuffle=False)
 
         # first move 
-        res = game.play([qp1, rp1], shuffle=False)
+#       res = game.play([qp1, rp1], shuffle=False)
 
         if len(res[1]) == 0 or res[0][-1][-1] == 100:
             win += 1

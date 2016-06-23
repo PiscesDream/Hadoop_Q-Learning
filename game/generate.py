@@ -6,12 +6,11 @@ import cPickle
 if __name__ == '__main__':
 #   game = Game('Pick Number', PickNumberWithRange(50))
     game = Game('Tic-Tac-Toe', TicTacToe()) 
-    qp1 = QPlayer('Robot', './qvalues/tictactoe.qvalues', epsilon=0.5)  
     rp1 = RandomPlayer('Alice')
     rp2 = RandomPlayer('Bob')
 
     FILE_COUNT = 20
-    REC_PER_FILE = 1000
+    REC_PER_FILE = 2000
 
     for i in range(FILE_COUNT):
         with open('input/data.{}.dat'.format(i), 'w') as f:

@@ -4,8 +4,8 @@ import sys
 
 actions = {}
 Qvalues = {}
-alpha = 0.2 
-discount = 0.9
+alpha = 0.3 
+discount = 0.8
 
 def read_input(file):
     for line in file:
@@ -35,9 +35,9 @@ def main(seperator='\t'):
             # if current state comes from a known state
             if last_state != None:
                 # old value
-                current_Qvalue = Qvalues.get((last_state, action), 0.0)
+                current_Qvalue = Qvalues.get((last_state, last_action), 0.0)
                 # update
-                Qvalues[(last_state, action)] = \
+                Qvalues[(last_state, last_action)] = \
                      current_Qvalue + alpha * (float(reward) \
                                                + discount * nextStateMaxQ(state) \
                                                - current_Qvalue) 

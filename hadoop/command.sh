@@ -1,5 +1,5 @@
 hdfs dfs -rm -r input 
-hdfs dfs -put input
+hdfs dfs -put input input
 hadoop jar hadoop-streaming-2.6.0.jar \
     -file mapper.py    -mapper mapper.py \
     -file reducer.py   -reducer reducer.py \

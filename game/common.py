@@ -90,6 +90,8 @@ class Game(object):
         history = [[] for player in players]
         iteration = 0
         while not state.isEnd():
+            old_state = state.serialize(player)
+
             # output current game
             if verbose > 0:
                 state.output()
@@ -103,7 +105,7 @@ class Game(object):
 
             # record
             history[iteration % NOF].\
-                append( (move, state.serialize(player), state.score(player)) ) 
+                append( (move, old_state, state.score(player)) ) 
             
             iteration += 1
 
