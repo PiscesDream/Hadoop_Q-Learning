@@ -70,7 +70,7 @@ class Game(object):
         self.name = name
         self.state = state
 
-    def play(self, players):
+    def play(self, players, shuffle=True, verbose=0):
         '''
             Start and record a game.
         '''
@@ -80,7 +80,8 @@ class Game(object):
         NOF = len(players) # number of players
 
         # shuffle the order of players
-        random.shuffle(players)
+        if shuffle:
+            random.shuffle(players)
 
         # initailze the game state
         state = deepcopy(self.state)
@@ -90,7 +91,8 @@ class Game(object):
         iteration = 0
         while not state.isEnd():
             # output current game
-            state.output()
+            if verbose > 0:
+                state.output()
 
             # make a move 
             player = players[iteration % NOF]
@@ -105,12 +107,14 @@ class Game(object):
             
             iteration += 1
 
-        # output last state
-        state.output()
 
-        # output result
-        for player in players:
-            print '{} score: {}\n'.format(player, state.score(player))
+        if verbose > 0:
+            # output last state
+            state.output()
+
+            # output result
+            for player in players:
+                print '{} score: {}\n'.format(player, state.score(player))
         return history
         
     def __repr__(self):

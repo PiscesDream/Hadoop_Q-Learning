@@ -54,8 +54,12 @@ class PickNumber(GameState):
                 return index+1
             elif index > player_index:
                 return index
-        return map(reindex, self.checked)
-        
+        def index2str(index):
+            if isinstance(index, int):
+                return str(index)
+            else:
+                return '^'
+        return ''.join(map(index2str, map(reindex, self.checked)))
 
 class PickNumberWithRange(GameState):
     '''
@@ -111,8 +115,14 @@ class PickNumberWithRange(GameState):
                 return index+1
             elif index > player_index:
                 return index
-        return map(reindex, self.checked)
-        
+        def index2str(index):
+            if isinstance(index, int):
+                return str(index)
+            else:
+                return '^'
+        return ''.join(map(index2str, map(reindex, self.checked)))
+
+       
 
 
 
