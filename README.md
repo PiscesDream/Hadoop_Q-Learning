@@ -7,4 +7,9 @@ Some rudimental information about Q-Learning can be found in here:
 - http://outlace.com/Reinforcement-Learning-Part-1/
 -  http://ai.berkeley.edu/reinforcement.html
 
+Runing the code
 
+- Set up Hadoop, Python
+- Make sure /user/username/ is in hdfs
+- cd workplace
+- ./run.sh
