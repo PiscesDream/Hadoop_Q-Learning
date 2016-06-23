@@ -16,16 +16,10 @@ if __name__ == '__main__':
     for i in range(FILE_COUNT):
         with open('input/data.{}.dat'.format(i), 'w') as f:
             for j in range(REC_PER_FILE):
-                print 'simulating game {} ...'.format(j)
-                data = None
-                res = game.play([qp1, rp2])
-                if res[0][-1][-1] == 100.0:
-                    data = res[0]
-                elif res[1][-1][-1] == 100.0:
-                    data = res[1]
-                if data != None:
-                    f.write('0\t0\t0\n')
-                    for move in data:
-                        f.write('{}\t{}\t{}\n'.format(move[1], move[0], move[2]))
-                        # status, action, value
+                print 'simulating game {} ...\r'.format(j),
+                res = game.play([rp1, rp2])[(i+2)%2]
+                f.write('0\t0\t0\n')
+                for move in res:
+                    f.write('{}\t{}\t{}\n'.format(move[1], move[0], move[2]))
+                    # status, action, value
 

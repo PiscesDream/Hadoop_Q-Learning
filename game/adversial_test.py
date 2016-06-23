@@ -31,9 +31,9 @@ if __name__ == '__main__':
         # first move 
         res = game.play([qp1, rp1], shuffle=False)
 
-        if len(res[1]) == 0 or res[0][-1][-1] > res[1][-1][-1]:
+        if len(res[1]) == 0 or res[0][-1][-1] == 100:
             win += 1
-        elif len(res[0]) == 0 or res[0][-1][-1] < res[1][-1][-1]:
+        elif len(res[0]) == 0 or res[0][-1][-1] == 0:
             loss += 1
         else:
             tie += 1

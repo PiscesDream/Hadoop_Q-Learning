@@ -158,9 +158,11 @@ class TicTacToe(GameState):
            self.board[2] == self.board[5] == self.board[8] == player_index or \
            self.board[0] == self.board[4] == self.board[8] == player_index or \
            self.board[2] == self.board[4] == self.board[6] == player_index:
-            return +100.0
+            return +100.0 #win
+        elif all(map(lambda x: x != None, self.board)):
+            return +20.0 #tie
         else:
-            return 0.0
+            return 0.0 # not win / not tie / loss
 
     def output(self):
         print '==='
